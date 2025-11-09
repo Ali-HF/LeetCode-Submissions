@@ -1,0 +1,40 @@
+#include <stdlib.h>
+#include <string.h>
+
+char* countAndSay(int n) {
+    if (n == 1)
+        return strdup("1");
+
+    char* previous = strdup("1");
+    char* next = malloc(5000 * sizeof(char));  
+    next[0] = '\0'; 
+
+    for (int step = 2; step <= n; step++) {
+        int readIndex = 0;
+        int writeIndex = 0;
+        int length = strlen(previous);
+
+        while (readIndex < length) {
+            char digit = previous[readIndex];
+            int count = 0;
+
+            while (readIndex < length && previous[readIndex] == digit) {
+                count++;
+                readIndex++;
+            }
+
+            next[writeIndex++] = count + '0';
+            next[writeIndex++] = digit;
+        }
+
+        next[writeIndex] = '\0'; 
+
+        free(previous);
+        previous = strdup(next);
+    }
+
+    free(next);
+    return previous;
+}
+
+
