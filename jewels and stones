@@ -1,0 +1,24 @@
+#include <string.h>
+int numJewelsInStones(char* jewels, char* stones) {
+    int arr[128];
+    int a = strlen(jewels);
+    int b = strlen(stones);
+    int count = 0;
+
+
+    for (int i = 0;i < a; i++ )
+    {
+        arr[jewels[i]] = 1;
+    }
+
+    for (int i = 0; i <b; i++)
+    {
+        if(arr[stones[i]] == 1)
+        {
+            count++;
+        }
+    }
+
+    return count;
+    
+}
