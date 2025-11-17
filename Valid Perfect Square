@@ -1,0 +1,15 @@
+#include <math.h>
+#include <stdbool.h>
+bool isPerfectSquare(int num) {
+    int temp = sqrt(num);
+    if (num == (temp*temp))
+    {
+        return true;
+    }
+    else 
+    {
+        return false;
+    }
+
+
+}
